@@ -70,17 +70,70 @@ if __name__ == "__main__":
     print(ratings_df.head())
 
     #2. Make pivot table
+    """
+    =====================
+    Fill in the cell !
+    =====================
 
+    * Useful functions:
+        - DataFrame.pivot(index, columns, values)
+
+    * Step by step
+        1. Make pivot table "R_df" with rating DataFrame
+    """
 
     #3. Normalize by each users mean convert it from a dataframe to a numpy array
     # DataFrame type to matrix
+    R = R_df.as_matrix()
 
+    """
+    =====================
+    Fill in the cell !
+    =====================
+
+    * Useful functions:
+        - np.mean(a, axis), reshape(-1,1), np.nan_to_num(x)
+
+    * Step by step
+        1. make "user_ratings_mean" variable 
+            : compute rating mean of each user
+            (caution! matrix shape : [number of users, 1] , matrix dim : 2 dim)
+        2. make "R_normalized" variable
+            : subtract that matrix from "R"
+        3. set NaN value to zero
+            : missing value is set to mean rating
+    """
     
     #4. Singular Value Decomposition
+    """
+    =====================
+    Fill in the cell !
+    =====================
 
+    * Useful functions:
+        - svds(A, k) : return U, sigma, Vt
+        - np.diag(v) : Extract a diagonal matrix
+
+    * Step by step
+        1. make "U, sigma, Vt" variables for svds funtion's output (k = 50)
+        2. Diagonalize the sigma value 
+
+    """
     
     #5. Making Predictions
+    """
+    =====================
+    Fill in the cell !
+    =====================
 
+    * Useful functions:
+        - np.dot
+    * Step by step
+        1. make "all_user_predicted_ratings" variable for predictions
+            1) multiply each variables 
+            2) add user ratings mean again
+    """
+    
     #6. Making Movie Recommendations
     preds_df = pd.DataFrame(all_user_predicted_ratings, columns = R_df.columns)
     print(preds_df.head())
